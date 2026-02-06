@@ -1,10 +1,34 @@
 // src/pages/About.tsx
 import React from "react";
-import { Users, Target, Eye, Mail } from "lucide-react";
+import { Users, Target, Eye, Mail, Heart } from "lucide-react";
 
 const About: React.FC = () => {
     return (
         <div className="bg-gray-50 min-h-screen">
+            <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+                <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                        <div className="w-10 h-10 rounded-xl bg-sos flex items-center justify-center">
+                            <Heart className="w-5 h-5 text-sos-foreground" />
+                        </div>
+                        <span className="text-xl font-bold text-foreground">DharuraPlus</span>
+                    </div>
+                    <nav className="hidden md:flex items-center gap-6">
+                        <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">
+                            Features
+                        </a>
+                        <a href="#how-it-works" className="text-muted-foreground hover:text-foreground transition-colors">
+                            How It Works
+                        </a>
+                        <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">
+                            Contact
+                        </a>
+                        <a href="/about" className="text-muted-foreground hover:text-foreground transition-colors">
+                            About
+                        </a>
+                    </nav>
+                </div>
+            </header>
             {/* Hero Section */}
             <div className="bg-primary text-white py-16 px-6 text-center">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4">About DharuraPlus</h1>
