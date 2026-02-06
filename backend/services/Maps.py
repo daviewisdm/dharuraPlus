@@ -1,17 +1,31 @@
-import os
 import requests
-from dotenv import load_dotenv
-
-load_dotenv()
-API_KEY = os.getenv("GOOGLE_MAPS_API_KEY")
 
 def get_nearby_hospitals(lat, lng):
-    # This reaches out to Google's real database
-    url = f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={lat},{lng}&radius=5000&type=hospital&key={API_KEY}"
+    # Overpass API is a free tool to query OpenStreetMap data
+    # We are looking for 'amenity=hospital' within a 5000m radius of your lat/lng
+    overpass_url = "http://overpass-api.de/api/interpreter"
+    overpass_query = f"""
+    [out:json];
+    node["amenity"="hospital"](around:5000,{lat},{lng});
+    out body;
+    """
     
-    response = requests.get(url)
-    if response.status_code == 200:
-        results = response.json().get("results", [])
-        # Simplify the data for our frontend
-        return [{"name": h["name"], "address": h.get("vicinity")} for h in results[:5]]
+    try:
+        response = requests.post(overpass_url, data={'data': overpass_query})
+        if response.status_code == 200:
+            data = response.json()
+            elements = data.get("elements", [])
+            
+            # Extract names and locations
+            hospitals = []
+            for e in elements[:5]:
+                name = e.get("tags", {}).get("name", "Unknown Hospital")
+                # OSM usually provides street names in tags
+                address = e.get("tags", {}).get("addr:street", "Nearby Location")
+                hospitals.append({"name": name, "address": address})
+            
+            return hospitals
+    except Exception as e:
+        print(f"OSM Error: {e}")
+        
     return []
