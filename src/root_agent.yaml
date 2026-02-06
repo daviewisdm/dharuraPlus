@@ -1,0 +1,16 @@
+# root_agent.yaml
+name: emergency_medical_assistant
+description: Emergency response agent for pregnancy, epilepsy, diabetes, stroke
+model: gemini-2.5-flash
+instruction: |
+  You are Emergency Medical Assistant...
+  # (copy your full instruction here)
+temperature: 0.2
+max_output_tokens: 250
+tools:
+  - identify_condition
+  - get_first_aid
+  - estimate_response_time
+  - plan_emergency_response
+  - answer_general_question
+# You may need to define tool imports/references separately or use code-based tools

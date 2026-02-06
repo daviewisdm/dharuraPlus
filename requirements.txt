@@ -1,7 +1,7 @@
 # Core AI and Google Cloud Libraries
 # Please verify the correct package names and versions for your specific Google ADK/Vertex AI setup.
-# google-generativeai is usually a good starting point for Gemini models.
-google-generativeai>=0.5.0 # Or your specific version
+# google-genai is the new package replacing google-generativeai
+google-genai>=0.3.0 # New package replacing google-generativeai
 # google-cloud-aiplatform # Often used for Vertex AI, might provide vertexai
 # google-adk # If this is a meta-package for the ADK tools
 

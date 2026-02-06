@@ -5,8 +5,8 @@ import datetime
 from zoneinfo import ZoneInfo
 
 # Only import what this file actually needs
-from google.generativeai import GenerativeModel
-from google.genai import types     # ← GenerationConfig lives here in newer versions
+from google.genai import types
+from google import genai
 
 # Relative imports from same package
 from .constants import EMERGENCY_CONDITIONS, FIRST_AID_GUIDELINES
@@ -156,8 +156,7 @@ def plan_emergency_response(condition: str, severity: str = "moderate") -> Dict:
 
 def answer_general_question(question: str) -> Dict:
     try:
-        model = GenerativeModel("gemini-1.5-flash")   # or "gemini-1.5-flash-002" etc.
-        
+        client = genai.Client()
         prompt = f"""You are a first-aid and emergency advisor specializing in:
 - Pregnancy complications
 - Epileptic seizures
@@ -170,13 +169,16 @@ Always end with: "This is not a substitute for professional medical help. Call e
 
 Question: {question}"""
         
-        response = model.generate_content(prompt)
+        response = client.models.generate_content(
+            model="gemini-1.5-flash",
+            contents=prompt
+        )
         
         return {
             "status": "success",
             "report": {
                 "question": question,
-                "answer": response.text.strip()
+                "answer": response.candidates[0].content.parts[0].text.strip()
             }
         }
     except Exception as e:
