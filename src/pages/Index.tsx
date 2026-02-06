@@ -2,6 +2,8 @@ import { Phone, MapPin, Clock, Shield, Heart, Users } from "lucide-react";
 import SOSButton from "@/components/SOSButton";
 import FeatureCard from "@/components/FeatureCard";
 import { toast } from "sonner";
+import { Navbar } from "@/layout/Navbar";
+
 
 const Index = () => {
   const handleSOSClick = () => {
@@ -13,7 +15,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
+
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -32,12 +34,19 @@ const Index = () => {
             <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">
               Contact
             </a>
+            <a href="/about" className="text-muted-foreground hover:text-foreground transition-colors">
+              About
+            </a>
           </nav>
         </div>
       </header>
 
+
+
+
+
       {/* Hero Section */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-24">
+      <section className="pt-28 pb-16 md:pt-36 md:pb-24">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center text-center">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
@@ -51,7 +60,7 @@ const Index = () => {
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-12 text-balance">
-              LifeGuard connects you instantly to emergency services and alerts your loved ones with your location. Be prepared for any health emergency.
+              Dharura connects you instantly to emergency services and alerts your loved ones with your location. Be prepared for any health emergency.
             </p>
 
             {/* SOS Button */}
