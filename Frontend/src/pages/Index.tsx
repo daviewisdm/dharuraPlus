@@ -3,14 +3,20 @@ import SOSButton from "@/components/SOSButton";
 import FeatureCard from "@/components/FeatureCard";
 import { toast } from "sonner";
 import { Navbar } from "@/layout/Navbar";
+import { useNavigate } from "react-router-dom";
 
 
 const Index = () => {
+  const navigate = useNavigate();
+
   const handleSOSClick = () => {
-    toast.error("Emergency SOS Activated!", {
-      description: "Contacting emergency services and your emergency contacts...",
-      duration: 5000,
+    // Optionally keep the toast
+    toast.success("Redirecting to Chat...", {
+      duration: 2000,
     });
+
+    // Navigate to the Chat page
+    navigate("/chat");
   };
 
   return (
