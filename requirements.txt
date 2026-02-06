@@ -1,0 +1,28 @@
+# Core AI and Google Cloud Libraries
+# Please verify the correct package names and versions for your specific Google ADK/Vertex AI setup.
+# google-generativeai is usually a good starting point for Gemini models.
+google-generativeai>=0.5.0 # Or your specific version
+# google-cloud-aiplatform # Often used for Vertex AI, might provide vertexai
+# google-adk # If this is a meta-package for the ADK tools
+
+# Utility Libraries
+thefuzz>=0.22.1 # For fuzzy string matching
+rapidfuzz>=3.0.0 # Often installed as a speedup dependency with thefuzz
+python-dotenv>=0.19.0 # For managing environment variables from .env files
+cloudpickle>=3.0.0 # For serializing Python objects
+
+# Other potential dependencies based on typical Python projects (add as needed):
+# Flask # If serving as a web app
+# requests # For making HTTP requests
+# pandas # For data manipulation if you expand data sources
+# numpy # For numerical operations
+
+# Notes:
+# 1. The 'google.adk.agents' and 'vertexai.preview.reasoning_engines' imports
+#    suggest you are using specific Google development kits. Ensure you have the
+#    correct SDKs installed. These might not be simple pip installs but part of
+#    a larger SDK installation (e.g., Google Cloud SDK).
+# 2. Use 'pip freeze > requirements.txt' in your activated virtual environment
+#    after installing all necessary packages to get a complete list with exact versions.
+# 3. To install these requirements: pip install -r requirements.txt
+cloudpickle>=2.2.1
