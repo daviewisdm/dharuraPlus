@@ -203,7 +203,7 @@ const Index = () => {
             </p>
 
             <p className="text-muted-foreground text-sm">
-              © 2026 LifeGuard. All rights reserved.
+              © 2026 Dharura. All rights reserved.
             </p>
           </div>
         </div>
