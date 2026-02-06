@@ -16,7 +16,7 @@ const Index = () => {
     });
 
     // Navigate to the Chat page
-    navigate("/chat");
+    navigate("/chatpage");
   };
 
   return (

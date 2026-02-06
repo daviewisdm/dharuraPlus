@@ -26,7 +26,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           {/* <Route path="src\pages\Navbar.jsx" element={<Navbar />} /> */}
           <Route path="/about" element={<About />} />
-          <Route path="/ChatPage" element={<ChatPage />} />
+          <Route path="/chatpage" element={<ChatPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
